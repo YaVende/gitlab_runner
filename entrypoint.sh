@@ -11,20 +11,20 @@ do
   fi
 done
 
-exit 0
-
 # Backup old config
 mv /etc/gitlab-runner/config.toml /etc/gitlab-runner/config.toml.bu
 
 # Generate new config file from template
 cat ./tmp/config.toml.template | envsubst '\
-  \$NAME
-  \$GITLAB_URL
-  \$GITLAB_TOKEN
-'
+  \$NAME \
+  \$GITLAB_URL \
+  \$GITLAB_TOKEN \
+' \
 > /etc/gitlab-runner/config.toml
 
 # Run the usual entrypoint
+#exec "\
 /usr/bin/dumb-init /entrypoint run        \
   --user=gitlab-runner                    \
   --working-directory=/home/gitlab-runner \
+#"
