@@ -11,6 +11,9 @@ check_interval = 0
     image         = "ruby:2.3"
     privileged    = false
     disable_cache = false
-    volumes       = ["/cache"]
+    volumes       = [
+      "/cache",
+      "/usr/bin/docker:/usr/bin/docker"
+    ]
     shm_size      = 0
   [runners.cache]
