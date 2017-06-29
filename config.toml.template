@@ -12,7 +12,7 @@ check_interval = 0
     privileged    = false
     disable_cache = false
     volumes       = [
-      "/cache",
+      "$CACHE_VOLUME:/cache",
       "/usr/bin/docker:/usr/bin/docker",
       "/var/run/docker.sock:/var/run/docker.sock"
     ]

@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Ensure needed vars are present
-declare -a vars=(NAME GITLAB_URL GITLAB_TOKEN)
+declare -a vars=(NAME GITLAB_URL GITLAB_TOKEN CACHE_VOLUME)
 
 for var_name in "${vars[@]}"
 do
@@ -19,12 +19,11 @@ cat ./tmp/config.toml.template | envsubst '\
   \$NAME \
   \$GITLAB_URL \
   \$GITLAB_TOKEN \
+  \$CACHE_VOLUME \
 ' \
 > /etc/gitlab-runner/config.toml
 
 # Run the usual entrypoint
-#exec "\
 /usr/bin/dumb-init /entrypoint run        \
   --user=gitlab-runner                    \
   --working-directory=/home/gitlab-runner \
-#"
