@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Ensure needed vars are present
-declare -a vars=(NAME GITLAB_URL GITLAB_TOKEN CACHE_VOLUME)
+declare -a vars=(NAME GITLAB_URL GITLAB_TOKEN)
 
 for var_name in "${vars[@]}"
 do
@@ -19,7 +19,6 @@ cat ./tmp/config.toml.template | envsubst '\
   \$NAME \
   \$GITLAB_URL \
   \$GITLAB_TOKEN \
-  \$CACHE_VOLUME \
 ' \
 > /etc/gitlab-runner/config.toml
 
