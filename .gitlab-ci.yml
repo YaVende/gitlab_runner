@@ -1,9 +1,6 @@
-services:
-  - docker:dind
-
 before_script:
   - docker login -u $CI_REGISTRY_USER -p $CI_JOB_TOKEN $CI_REGISTRY
-  - export IMAGE_NAME=$CI_REGISTRY_IMAGE:$(./scripts/docker_image_tag.sh)
+  - export IMAGE_NAME=$CI_REGISTRY_IMAGE:$(docker_image_tag)
 
 build_image:
   stage: build
