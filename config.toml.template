@@ -8,7 +8,7 @@ check_interval = 0
   executor = "docker"
   [runners.docker]
     tls_verify    = false
-    image         = "ruby:2.3"
+    image         = "registry.alfred.yavende.com/dev_ops/gitlab_worker:v0.1.0"
     privileged    = false
     disable_cache = false
     volumes       = [
