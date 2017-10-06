@@ -1,4 +1,4 @@
-concurrent = 1
+concurrent = $CONCURRENT
 check_interval = 0
 
 [[runners]]
