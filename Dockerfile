@@ -3,10 +3,12 @@ FROM gitlab/gitlab-runner:v9.3.0
 RUN apt-get update
 RUN apt-get install -y gettext # get the enbsubst utility
 
-ADD entrypoint.sh /tmp/entrypoint.sh
+ADD entrypoint.sh /etc/entrypoint.sh
 ADD config.toml.template /tmp/config.toml.template
 
 VOLUME /cache
 
+RUN chmod +x /etc/entrypoint.sh
+
 ENTRYPOINT ["/bin/sh", "-c"]
-CMD ["/tmp/entrypoint.sh > /dev/stdout"]
+CMD ["/etc/entrypoint.sh > /dev/stdout"]
