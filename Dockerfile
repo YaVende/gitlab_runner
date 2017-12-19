@@ -1,4 +1,4 @@
-FROM gitlab/gitlab-runner:v9.3.0
+FROM gitlab/gitlab-runner:v10.2.0
 
 RUN apt-get update
 RUN apt-get install -y gettext # get the enbsubst utility
